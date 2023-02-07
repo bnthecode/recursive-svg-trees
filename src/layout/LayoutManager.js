@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 class LayoutManager {
-  totals = {};
+  nodeMap = {};
 
   getChildCoordinates = (node, parent, idx, startX, startY) => {
     const childOffset = 100;
@@ -23,20 +23,25 @@ class LayoutManager {
   };
 
   layoutItemRecursive = (nodes, startX = 50, startY = 50) => {
+    const xOffset = 100;
     return nodes.map((node, index) => {
+      const newX = startX + 840 * index;
       node = {
         ...node,
         id: uuidv4(),
         hasBeenIterated: true,
-        x: startX * (index + 1),
+        x: newX,
         y: startY,
       };
-
+      this.nodeMap = {
+        ...this.nodeMap,
+        [node.id]: node,
+      };
       if (node.children && node.children.length) {
         node.children = [
-          ...this.layoutItemRecursive(node.children, startX + 50, startY + 50),
+          ...this.layoutItemRecursive(node.children, newX, startY),
         ];
-        this.getCoordinates(node, node.children, startX, startY);
+        this.getCoordinates(node, node.children, newX, startY);
       }
       return node;
     });

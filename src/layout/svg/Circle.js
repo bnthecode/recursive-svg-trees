@@ -1,6 +1,7 @@
 const Circle = ({ x, y, color }) => {
   return (
     <circle
+      className="box"
       cx={x}
       cy={y}
       r="40"

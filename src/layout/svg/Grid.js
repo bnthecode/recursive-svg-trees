@@ -1,6 +1,8 @@
 const Grid = ({ children }) => {
   return (
     <svg
+      // viewBox={`0 0 ${window.innerWidth} ${window.innerHeight}`}
+      // preserveAspectRatio="none"
       width="100%"
       height="calc(100vh - 5px)"
       xmlns="http://www.w3.org/2000/svg"

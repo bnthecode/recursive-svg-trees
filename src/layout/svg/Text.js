@@ -1,6 +1,15 @@
-const Text = ({ x, y, size, content }) => {
+const Text = ({ x, y, size, content, onClick, id }) => {
   return (
-    <text x={x} fontWeight="800" fontSize={size} fill="#36454f" y={y}>
+    <text
+      id={id}
+      x={x}
+      fontWeight="800"
+      fontSize={size}
+      fill="#36454f"
+      y={y}
+      onClick={onClick}
+      style={{ cursor: "pointer" }}
+    >
       {content}
     </text>
   );

@@ -7,7 +7,7 @@ class LayoutManager {
     const nodeWidth = 120;
     // main spot that needs word
     node.x = childOffset + nodeWidth * idx * 1 + startX;
-    node.y = parent.y + startY;
+    node.y = parent.y + startY * 1.5;
     node.parentX = parent.x;
     node.parentY = parent.y;
     node.hasBeenIterated = true;
@@ -23,9 +23,10 @@ class LayoutManager {
   };
 
   layoutItemRecursive = (nodes, startX = 50, startY = 50) => {
-    const xOffset = 100;
     return nodes.map((node, index) => {
-      const newX = startX + 840 * index;
+      const xOffset = 840;
+      const newX = startX + xOffset * index;
+
       node = {
         ...node,
         id: uuidv4(),

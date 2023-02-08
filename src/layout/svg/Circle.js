@@ -1,13 +1,16 @@
-const Circle = ({ x, y, color }) => {
+const Circle = ({ x, y, color, id, onClick }) => {
   return (
     <circle
-      className="box"
+      id={id}
+      className="node"
       cx={x}
       cy={y}
       r="40"
       stroke="#36454f"
       stroke-width={8}
       fill={color}
+      onClick={onClick}
+      style={{ cursor: "pointer" }}
     ></circle>
   );
 };
